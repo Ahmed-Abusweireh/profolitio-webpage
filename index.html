@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Enables basic smooth scrolling */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif; /* Consistent font */
+            background-color: #1e1e2f; /* Darker background for better contrast */
+            color: #e4e4e4; /* Light text for readability */
+            line-height: 1.8; /* Improved line spacing for readability */
+        }
+
+        nav {
+            background: linear-gradient(90deg, #4a90e2, #007bff); /* Softer gradient for nav */
+            color: white;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow for depth */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-start; /* Align items to the left */
+            gap: 20px; /* Add spacing between the links */
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li:first-child {
+            margin-right: auto; /* Push all other links to the right */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: #0056b3;
+            color: #fff;
+            border-radius: 5px;
+            transform: scale(1.1);
+        }
+
+        .content-container {
+            width: 80%;
+            margin: 20px auto;
+            height: auto;
+        }
+
+        section {
+            scroll-margin-top: 80px; /* Adjust this value to match the height of your nav */
+            background-color: #2a2a3b; /* Slightly lighter background for sections */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow for contrast */
+            padding: 20px;
+            margin: 20px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+            cursor: pointer;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            color: #4a90e2; /* Matches the nav gradient */
+            margin-bottom: 15px;
+        }
+
+        p {
+            text-align: justify;
+            font-size: 1.1rem; /* Slightly larger font size for readability */
+            color: #d4d4d4; /* Softer light text for readability */
+            margin: 10px 0;
+            padding: 0 5%; /* Add padding to the sides for better spacing */
+            line-height: 1.8;
+        }
+
+        #about-me {
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Vertically align items */
+            gap: 20px; /* Add spacing between image and text */
+              border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+            padding: 20px; /* Add padding inside the section */
+            margin: 20px 0; /* Add spacing between sections */
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* #about-me:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); 
+        } */
+
+        #about-me img {
+            border-radius: 50%; /* Circular image */
+            width: 150px; /* Adjust size */
+            height: 150px;
+            border: 5px solid #4a90e2; /* Matches the nav gradient */
+            flex-shrink: 0; /* Prevent the image from shrinking */
+        }
+
+        #about-me div {
+            flex: 1; /* Allow the text container to take up remaining space */
+            display: flex; /* Use flexbox for the inner div */
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center; /* Center content vertically */
+        }
+
+        #about-me h1 {
+            text-align: left; /* Align heading to the left */
+            font-size: 2rem;
+            color: #4a90e2; /* Matches the nav gradient */
+            margin-bottom: 10px;
+        }
+
+        #about-me p {
+            text-align: justify; /* Justify the text for better readability */
+            font-size: 1.1rem;
+            color: #d4d4d4; /* Softer light text for readability */
+            line-height: 1.8;
+        }
+
+        #contact p, #projects p, #customer-service p {
+            text-align: center;
+        }
+
+        #email-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: #2a2a3b; /* Slightly lighter background for contrast */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+            padding: 15px 20px;
+            margin: 20px 0;
+            transition: all 0.3s ease-in-out;
+            width: fit-content;
+        }
+
+        #email-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+        }
+
+        .email-icon img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .email-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .email-text p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #d4d4d4; /* Softer light text for readability */
+        }
+
+        .email-text button {
+            margin-top: 5px;
+            padding: 5px 10px;
+            background-color: #4a90e2; /* Matches the nav gradient */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .email-text button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#about-me">About Me</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#customer-service">Customer Service</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-container">
+
+        <h1>Who Am I</h1>
+        <div id="about-me">
+            <img src="my_pic_ofcourse.jpg" alt="Profile Picture">
+            <div>
+               
+                <p>Hi there! My name is Ahmed Hani, I am an undergraduate student at Al-Quds Open University, pursuing a degree in Information Technology.
+
+                I have a strong passion for technology, software development, and problem-solving. On my personal website, you can explore some of my personal projects as well as collaborations with clients. I am always eager to learn new technologies and improve my skills in programming, web development, and software engineering.
+
+                Feel free to check out my work, and don't hesitate to reach out for collaboration or inquiries!</p>
+            </div>
+        </div>
+
+        
+
+        <section id="projects">
+            <h1>Projects</h1>
+            
+        </section>
+
+
+        <section id="contact">
+            <h1>Contact</h1>
+            <p>Feel free to reach out to me through email provided below</p>
+            <div id="email-card">
+                <div class="email-icon">
+                    <img src="email-icon.png" alt="Email Icon">
+                </div>
+                <div class="email-text">
+                    <p id="business-email">business@example.com</p>
+                    <button onclick="copyEmail()">Copy Email</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function copyEmail() {
+            const email = document.getElementById("business-email").textContent;
+            navigator.clipboard.writeText(email).then(() => {
+                alert("Email copied to clipboard!");
+            }).catch(err => {
+                console.error("Failed to copy email: ", err);
+            });
+        }
+    </script>
+</body>
+</html>
