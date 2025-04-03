@@ -33,14 +33,7 @@
         }
 
         nav {
-            background: repeating-radial-gradient(
-    circle, 
-    #0663c7 0.01%, 
-    #0c5eb6 .1%, 
-    #1b50ba .3%, 
-    #142b58 100%
-   
-);
+            background: linear-gradient(90deg, #4a90e2, #007bff); /* Softer gradient for nav */
             color: white;
             padding: 10px 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow for depth */
@@ -75,7 +68,7 @@
         }
 
         nav ul li a:hover {
-            background-color: #0426499d;
+            background-color: #0056b3;
             color: #fff;
             border-radius: 5px;
             transform: scale(1.1);
@@ -89,7 +82,6 @@
             padding: 20px;
             margin: 20px 0;
             transition: all 0.3s ease-in-out;
-            background-color: #07132b64;
         }
 
         section:hover {
@@ -124,13 +116,7 @@
             padding: 20px; /* Add padding inside the section */
             margin: 20px 0; /* Add spacing between sections */
             transition: all 0.3s ease-in-out;
-            background-color: #07132b64;
-           
         }
-
-        #about-me {
-    scroll-margin-top: 120px; /* Adjust this value to match the height of your nav */
-}
 
         /* #about-me:hover {
             transform: translateY(-5px); 
@@ -239,34 +225,34 @@
         .carousel-container {
             display: flex;
             align-items: center; /* Vertically center the carousel */
-        justify-content: center; /* Horizontally center the carousel */
-        
-        width: 90%;
-        margin: 0 auto;
-        overflow: hidden;
-      
-    }
+            justify-content: center; /* Horizontally center the carousel */
+            position: relative;
+            width: 90%;
+            margin: 0 auto;
+            overflow: hidden; /* Hide overflowing cards */
+        }
 
         .carousel {
             display: flex;
-           
-            overflow: hidden;
-            width: 80%;
+            transition: transform 0.5s ease-in-out;
         }
 
         .card {
-            flex: 0 0 auto;
-            width: 300px;
+            flex: 0 0 30%; /* Default card width as 30% of the container */
             margin: 0 10px;
             background-color: #2a2a3b;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            padding: 15px;
             text-align: center;
+            padding: 15px;
+            transition: all 0.3s ease-in-out;
         }
 
         .card img {
             width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
             border-radius: 10px;
         }
         .card {
@@ -340,7 +326,7 @@
             <img src="my_pic_ofcourse.jpg" alt="Profile Picture">
             <div>
                 <p>
-                    <strong>Hello and welcome to my webpage!</strong> My name is <strong>Ahmed Hani</strong>, an undergraduate student at 
+                    <strong>Hello and welcome!</strong> My name is <strong>Ahmed Hani</strong>, an undergraduate student at 
                     <em>Al-Quds Open University</em>, pursuing a degree in <strong>Information Technology</strong>.
                 </p>
                 <p>
@@ -369,23 +355,19 @@
                 <button class="carousel-btn left" onclick="slideLeft()">&#10094;</button>
                 <div class="carousel">
                     <div class="card">
-                        
-                        <h2>Supermarket System</h2>
-                       
-                        <p>A comprehensive supermarket management system with inventory tracking and sales analysis.</p>
                         <img src="supermarket.png" alt="Supermarket Project">
+                        <h2>Supermarket System</h2>
+                        <p>A comprehensive supermarket management system with inventory tracking and sales analysis.</p>
                     </div>
                     <div class="card">
-                        <h2>Supermarket System</h2>
-                       
-                        <p>A comprehensive supermarket management system with inventory tracking and sales analysis.</p>
-                        <img src="supermarket.png" alt="Supermarket Project">
+                        <img src="project2.jpg" alt="Project 2">
+                        <h2>Project 2</h2>
+                        <p>Details about the second project go here.</p>
                     </div>
                     <div class="card">
-                        <h2>Supermarket System</h2>
-                       
-                        <p>A comprehensive supermarket management system with inventory tracking and sales analysis.</p>
-                        <img src="supermarket.png" alt="Supermarket Project">
+                        <img src="project3.jpg" alt="Project 3">
+                        <h2>Project 3</h2>
+                        <p>Details about the third project go here.</p>
                     </div>
                 </div>
                 <button class="carousel-btn right" onclick="slideRight()">&#10095;</button>
@@ -419,55 +401,31 @@
             });
         }
 
-    let currentIndex = 0;
+        let currentIndex = 0;
 
-    function slideLeft() {
-        const carousel = document.querySelector('.carousel');
-        const cards = document.querySelectorAll('.card');
-        const cardWidth = cards[0].offsetWidth + 20; // Include margin
-        currentIndex = Math.max(currentIndex - 1, 0); // Prevent scrolling past the first card
-        carousel.scrollTo({
-            left: currentIndex * cardWidth,
-            behavior: 'smooth'
-        });
-    }
+function slideLeft() {
+    const carousel = document.querySelector('.carousel');
+    const cards = document.querySelectorAll('.card');
+    const cardWidth = cards[0].offsetWidth + 20; // Include margin
+    currentIndex = Math.max(currentIndex - 1, 0); // Prevent scrolling past the first card
+    carousel.scrollTo({
+        left: currentIndex * cardWidth,
+        behavior: 'smooth'
+    });
+}
 
-    function slideRight() {
-        const carousel = document.querySelector('.carousel');
-        const cards = document.querySelectorAll('.card');
-        const cardWidth = cards[0].offsetWidth + 20; // Include margin
-        const maxIndex = cards.length - 1; // Prevent scrolling past the last card
-        currentIndex = Math.min(currentIndex + 1, maxIndex);
-        carousel.scrollTo({
-            left: currentIndex * cardWidth,
-            behavior: 'smooth'
-        });
-    }
-    let scrollSpeed = 1.2; // Normal scroll speed
-let isScrolling = false;
+function slideRight() {
+    const carousel = document.querySelector('.carousel');
+    const cards = document.querySelectorAll('.card');
+    const cardWidth = cards[0].offsetWidth + 20; // Include margin
+    const maxIndex = cards.length - 1; // Prevent scrolling past the last card
+    currentIndex = Math.min(currentIndex + 1, maxIndex);
+    carousel.scrollTo({
+        left: currentIndex * cardWidth,
+        behavior: 'smooth'
+    });
+}
 
-window.addEventListener("wheel", function(event) {
-    event.preventDefault();
-
-    let currentScroll = window.scrollY; // Get current scroll position
-    let adjustedSpeed = scrollSpeed;
-
-    // If user is near the top (less than 50px), reduce first scroll impact
-    if (currentScroll < 70) {
-        adjustedSpeed = 0.5; // Reduce the first scroll effect
-    }
-
-    if (!isScrolling) {
-        isScrolling = true;
-        requestAnimationFrame(() => {
-            window.scrollBy({
-                top: event.deltaY * adjustedSpeed,
-                behavior: "smooth"
-            });
-            isScrolling = false;
-        });
-    }
-}, { passive: false });
 
     </script>
 </body>
