@@ -34,13 +34,13 @@
 
         nav {
             background: repeating-radial-gradient(
-    circle, 
-    #0663c7 0.01%, 
-    #0c5eb6 .1%, 
-    #1b50ba .3%, 
-    #142b58 100%
+        circle, 
+        #0663c7 0.01%, 
+        #0c5eb6 .1%, 
+        #1b50ba .3%, 
+        #142b58 100%
    
-);
+        );
             color: white;
             padding: 10px 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow for depth */
@@ -82,35 +82,45 @@
         }
 
         section {
-            scroll-margin-top: 25px; /* Adjust this value to match the height of your nav */
+             /* Adjust this value to match the height of your nav */
             background-color: #2a2a3b; /* Slightly lighter background for sections */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow for contrast */
             padding: 20px;
-            margin: 20px 0;
+            
+            
             transition: all 0.3s ease-in-out;
             background-color: #07132b64;
         }
 
         section:hover {
-             transform: translateY(-1px); 
+             transform: translateY(0px); 
             
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
            
         }
 
         h1 {
-            text-align: center;
-            font-size: 2rem;
-            color: #4a90e2; /* Matches the nav gradient */
-            margin-bottom: 15px;
-        }
+   text-align: center; /* Ensure all headings are centered */
+    font-size: 1.9rem; /* Ensure consistent font size */
+    color: #4a90e2; /* Matches the nav gradient */
+    font-weight: 600; /* Consistent font weight */
+}
+
+h1:first-of-type {
+    margin: 20px 0 30px 0; /* Top and bottom margins for the first <h1> */
+}
+
+h1:not(:first-of-type) {
+    margin: 30px 0 20px 0; /* Only bottom margin for the rest */
+}
+
 
         p {
             text-align: justify;
             font-size: 1.1rem; /* Slightly larger font size for readability */
             color: #d4d4d4; /* Softer light text for readability */
-            margin: 10px 0;
+            margin: 5px 0;
             padding: 0 5%; /* Add padding to the sides for better spacing */
             line-height: 1.8;
         }
@@ -129,7 +139,13 @@
         }
 
         #about-me {
-    scroll-margin-top: 120px; /* Adjust this value to match the height of your nav */
+    scroll-margin-top: 130px; /* Adjust this value to match the height of your nav */
+}
+#contact {
+    scroll-margin-top: 10px;
+}
+#projects {
+    scroll-margin-top: 125px;
 }
 
         img {
@@ -171,6 +187,7 @@
             margin-bottom: 10px;
         } */
 
+        
         #about-me p {
             text-align: justify; /* Justify the text for better readability */
             font-size: 1.1rem;
@@ -191,7 +208,9 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
             padding: 15px 20px;
-            margin: 20px auto; /* Center horizontally */
+            margin: 20px auto; 
+            
+            /* Center horizontally */
             transition: all 0.3s ease-in-out;
             width: fit-content;
         }
@@ -200,6 +219,16 @@
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
         }
+        
+        #projects  img:hover{
+            transform: translateY(5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+            transform: scale(1.05);
+        }
+
+        
+
+
 
         .email-icon img {
             width: 60px;
@@ -249,11 +278,14 @@
             align-items: center; /* Vertically center the carousel */
         justify-content: center; /* Horizontally center the carousel */
         
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
         overflow: hidden;
       
     }
+
+
+    
 
         .carousel {
             display: flex;
@@ -263,48 +295,45 @@
         }
 
         .card {
-            flex: 0 0 auto;
-            width: 300px;
-            margin: 0 10px;
+            width: 250px; /* Set a fixed width for all cards */
+            height: 350px; /* Set a fixed height to ensure uniformity */
+            margin-bottom: 10px;
+            margin-right: 60px;
             background-color: #2a2a3b;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            padding: 15px;
             text-align: center;
+            padding: 15px;
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Stack content vertically */
+            justify-content: space-between; /* Distribute content evenly */
+            align-items: center; /* Center items horizontally */
+            overflow: hidden; /* Prevent content overflow */
+        }
+
+        .card h2 {
+            color: #4a90e2;
+            margin: 10px 0;
+            font-size: 1.2rem; /* Ensure consistent font size */
+        }
+
+        .card p {
+            color: #d4d4d4;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            overflow: hidden; /* Prevent text overflow */
+            text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+            white-space: normal; /* Allow text to wrap */
+            max-height: 60px; /* Limit the height of the text */
         }
 
         .card img {
-            width: 100%;
+            width: 150px; /* Adjust the size of the image */
+            height: 150px; /* Ensure consistent height */
             border-radius: 10px;
+            object-fit: cover; /* Ensure the image fits within the dimensions */
+            margin: 0 auto; /* Center the image horizontally */
         }
-        .card {
-        width:250px;
-        
-       margin-bottom:10px;
-       margin-right: 60px;
-        background-color: #2a2a3b;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        text-align: center;
-        padding: 15px;
-    }
-
-    .card img {
-        /* width: 60%;
-         */
-        border-radius: 10px;
-    }
-
-    .card h2 {
-        color: #4a90e2;
-        margin: 10px 0;
-    }
-
-    .card p {
-        color: #d4d4d4;
-        font-size: 1rem;
-    }
-
 
     a { text-decoration: none;
       
@@ -326,7 +355,7 @@
        
         border: none;
         padding: 20px;
-        
+        margin:10px;
         cursor: pointer;
 
         border-radius: 50%;
@@ -346,6 +375,108 @@
     .carousel-btn:hover {
         background-color: rgba(0, 0, 0, 0.8);
     }
+
+
+    @media (max-width: 768px) {
+       
+
+        
+        img {
+        
+        object-fit: cover; /* Ensure the image fits within the dimensions */
+    }
+
+  
+    
+
+    #about-me img {
+        /* width: 120px; 
+        height: 170px; */
+        width: 70px; 
+        height: 120px;
+    }
+
+    #about-me p{
+        margin: 0;
+        margin-right: 1px;
+        padding:3px;
+        padding-right: 1px;
+        font-size: 0.7rem; /* Adjust font size for smaller screens */
+        font-weight: 510;
+    }
+
+    #projects p{
+        font-size: 0.7rem; /* Adjust font size for smaller screens */
+        font-weight: 510;  
+    }
+    h1{
+        font-size: 1.4rem;
+    }
+
+    h2{
+        font-size: 1.1rem;
+    }
+    
+    #contact img {
+        width: 60px; /* Specific size for the contact icon */
+        height: 60px;
+    }
+   
+    .card {
+        transform: scaleX(0.8);
+         /* Make the card take up 90% of the screen width */
+         /* Allow the height to adjust based on content */
+        margin: 15px auto; /* Center the card horizontally and add spacing */
+      padding-left: 0px;
+      margin-left: 0px;
+      
+        /* Adjust padding for smaller screens */
+
+    }
+
+    
+
+    .card img {
+        width: 100%; /* Make the image take up the full width of the card */
+        height: auto; /* Maintain aspect ratio */
+        margin: 0 auto; /* Center the image horizontally */
+    }
+
+    
+    /* .card img {
+        width: 100%; 
+          height: auto;
+    } */
+
+    .carousel-container {
+        overflow-x: auto; /* Enable horizontal scrolling */
+        display: flex;
+        flex-wrap: nowrap; /* Prevent cards from wrapping to the next line */
+        gap: 15px; /* Add spacing between cards */
+        padding: 10px; /* Add padding around the carousel */
+        scroll-snap-type: x mandatory; /* Enable snap scrolling */
+    }
+
+    .carousel {
+        display: flex;
+        flex-direction: row; /* Ensure cards are in a row */
+        gap: 15px; /* Add spacing between cards */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        scroll-snap-type: x mandatory; /* Enable snap scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
+    }
+
+    .card {
+        flex: 0 0 80%; /* Make each card take up 80% of the screen width */
+        height: auto; /* Allow height to adjust based on content */
+        scroll-snap-align: center; /* Snap each card to the center */
+        margin: 0 auto; /* Center the card horizontally */
+    }
+
+    .carousel-btn {
+        display: none; /* Hide carousel buttons on smaller screens */
+    }
+    }
     </style>
 </head>
 <body>
@@ -361,67 +492,64 @@
     <div class="content-container">
 
         <h1>Who Am I</h1>
-        <div id="about-me">
+        <section class="about-me" id="about-me">
             <img src="me.jpg" alt="Profile Picture">
             <div>
                 <p>
-                     My name is <strong>Ahmed Hani</strong>, an undergraduate student at 
-                    <em>Al-Quds Open University</em>, pursuing a degree in <strong>Information Technology</strong>.
+                    Hi, I'm <strong>Ahmed Hani</strong><br>
+                    <em>Undergraduate Student at Al-Quds Open University.</em>
                 </p>
                 <p>
-                    I am deeply passionate about <strong>technology</strong>, <strong>software development</strong>, and 
-                    <strong>problem-solving</strong>. My journey in the tech world has been fueled by a constant desire to 
-                    <em>learn</em>, <em>innovate</em>, and <em>create</em>.
+                    I'm an aspiring <strong>software developer</strong> with a strong passion for 
+                    <strong>technology</strong>, <strong>coding</strong>, and <strong>creative problem-solving</strong>. 
+                    Currently pursuing my degree in <strong>Information Technology</strong>, I’m constantly driven by a desire to 
+                    <em>learn</em>, <em>build</em>, and <em>grow</em> in the world of <strong>software engineering</strong>.
                 </p>
                 <p>
-                    On this website, you'll find a showcase of my <strong>personal projects</strong>
-                    . Each project reflects my dedication to mastering 
-                    <strong>programming</strong>, <strong>web development</strong>, and <strong>software engineering</strong>.
+                    This website conatins a collection of my <strong>personal projects</strong> and technical explorations. 
+                    Each project showcases my dedication to writing <strong>clean code</strong>, building 
+                    <strong>functional applications</strong>, and mastering the fundamentals of 
+                    <strong>programming</strong> and <strong>web development</strong>.
                 </p>
                 <p>
-                    <strong>Feel free to explore my work</strong>, and don't hesitate to <em>reach out</em> for 
-                    <strong>collaboration</strong> or <strong>inquiries</strong>!
+                    <strong>Feel free to browse through my work</strong>—and if you’re interested in 
+                    <strong>collaborating</strong>, have any <strong>questions</strong>, or just want to 
+                    <strong>connect</strong>, don’t hesitate to <em>reach me out</em>!
                 </p>
+                
+                
             </div>
-        </div>
+        </section>
     
         
-
+        <h1>Projects</h1>
         <section id="projects">
-            <h1>Projects</h1>
+            
             <div class="carousel-container">
                 <button class="carousel-btn left" onclick="slideLeft()">&#10094;</button>
                 <div class="carousel">
 
-                <a href=" https://ahmed-abusweireh.github.io/mini-_supermarket_app/" target="_blank">
+                <a href="https://ahmed-abusweireh.github.io/mini-_supermarket_app/" target="_blank">
                     <div class="card">
-                        
-                        <h2>Supermarket System Ui</h2>
-                       
-                        <p >A Cashier user-friendly system for creating, retrieving, editing, and deleting receipts.</p>
-                       
-                             <img src="supermarket.png" style="width: 200px;  margin-top:20px;" alt="Supermarket Project">
+                        <h2>Supermarket System UI</h2>
+                        <p>A Cashier user-friendly system for creating, retrieving, editing, and deleting receipts.</p>
+                        <img src="supermarket.png" alt="Supermarket Project">
                     </div>
-                </a> 
-                     
+                </a>
+
                 <a href="https://github.com/retenuphilistia13/Prime_Finder" target="_blank">
                     <div class="card">
-                        <h2>Prime finder Application</h2>
-                       
-                        <p>A smart console app to check primes written in c++, list smaller primes, and find prime sums.</p>
-                     
-                    
-                        
-                        <img src="prime_finder.png" style="  margin-top:20px;" alt="Prime finder Console Application">
+                        <h2>Prime Finder Application</h2>
+                        <p>A smart console app to check primes written in C++, list smaller primes, and find prime sums.</p>
+                        <img src="prime_finder.png" alt="Prime Finder Console Application">
                     </div>
-                </a> 
+                </a>
 
-                <a href="https://retenuphilistia13.github.io/counting_and_shape_for_kids/" target="_blank"> <div class="card">
-                        <h2>Toddler count game</h2>
-                       
-                        <p style="margin-top:20px;">Simple webpage for toddler to learn, count numbers and have fun</p>
-                     
-                        <img src="counting_toddlers.png"  style="width: 200px; height: 150px; margin-top:37.5px;" alt="Toddler game website">
+                <a href="https://retenuphilistia13.github.io/counting_and_shape_for_kids/" target="_blank">
+                    <div class="card">
+                        <h2>Toddler Count Game</h2>
+                        <p>Simple webpage for toddlers to learn, count numbers, and have fun.</p>
+                        <img src="counting_toddlers.png" alt="Toddler Game Website">
                     </div>
                 </a>
 
@@ -430,9 +558,9 @@
             </div>
         </section>
 
-
+        <h1>Contact</h1> 
         <section id="contact">
-            <h1>Contact</h1>
+               
             <p>Feel free to reach out to me through email provided below</p>
             <div id="email-card">
                 <div class="email-icon">
@@ -514,7 +642,7 @@
         }
     }
 
-    let scrollSpeed = 1.2; // Normal scroll speed
+    let scrollSpeed = 1.7; // Normal scroll speed
     let isScrolling = false;
 
     window.addEventListener("wheel", function(event) {
@@ -540,6 +668,27 @@
         }
     }, { passive: false });
 
+    // Enable touch-based scrolling for the carousel
+    const carousel = document.querySelector('.carousel');
+
+    carousel.addEventListener('touchstart', handleTouchStart, { passive: true });
+    carousel.addEventListener('touchmove', handleTouchMove, { passive: true });
+
+    let xStart = null;
+
+    function handleTouchStart(event) {
+        xStart = event.touches[0].clientX;
+    }
+
+    function handleTouchMove(event) {
+        if (!xStart) return;
+
+        const xEnd = event.touches[0].clientX;
+        const xDiff = xStart - xEnd;
+
+        carousel.scrollLeft += xDiff; // Scroll horizontally based on touch movement
+        xStart = xEnd; // Update the starting position
+    }
     </script>
 </body>
 </html>
